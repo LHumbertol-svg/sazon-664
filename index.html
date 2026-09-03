@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sazón 664 | Tijuana</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #111111;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* NAVEGACIÓN */
+
+        nav {
+            width: 100%;
+            background: #111111;
+            padding: 18px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            border-bottom: 1px solid #272727;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #f4a825;
+        }
+
+        nav ul {
+            list-style: none;
+
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #f4a825;
+        }
+
+
+        /* PORTADA */
+
+        .hero {
+            min-height: 88vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 50px 20px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #56330f 0%,
+                    #25190d 35%,
+                    #111111 70%
+                );
+        }
+
+        .hero-contenido {
+            max-width: 850px;
+        }
+
+        .pequeno {
+            color: #f4a825;
+
+            font-weight: bold;
+
+            text-transform: uppercase;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 70px;
+
+            line-height: 1.05;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #f4a825;
+        }
+
+        .hero p {
+            max-width: 650px;
+
+            margin: auto;
+
+            font-size: 19px;
+
+            color: #cccccc;
+        }
+
+        .botones {
+            margin-top: 35px;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .boton {
+            display: inline-block;
+
+            padding: 15px 27px;
+
+            background: #f4a825;
+
+            color: #111111;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+        .boton:hover {
+            transform: translateY(-3px);
+
+            background: #ffba3c;
+        }
+
+        .boton-secundario {
+            background: transparent;
+
+            color: white;
+
+            border: 1px solid #555555;
+        }
+
+        .boton-secundario:hover {
+            background: #222222;
+        }
+
+
+        /* SECCIONES */
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+        .titulo-seccion p {
+            color: #f4a825;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 8px;
+        }
+
+        .titulo-seccion h2 {
+            font-size: 42px;
+        }
+
+
+        /* MENÚ */
+
+        #menu {
+            background: #161616;
+        }
+
+        .menu-grid {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .platillo {
+            background: #212121;
+
+            padding: 28px;
+
+            border-radius: 14px;
+
+            border: 1px solid #2f2f2f;
+
+            transition: 0.25s;
+        }
+
+        .platillo:hover {
+            transform: translateY(-6px);
+
+            border-color: #f4a825;
+        }
+
+        .platillo-icono {
+            font-size: 40px;
+
+            margin-bottom: 15px;
+        }
+
+        .platillo h3 {
+            font-size: 22px;
+
+            margin-bottom: 8px;
+        }
+
+        .platillo p {
+            color: #aaaaaa;
+
+            min-height: 75px;
+        }
+
+        .precio {
+            color: #f4a825;
+
+            font-size: 21px;
+
+            font-weight: bold;
+
+            margin-top: 18px;
+        }
+
+
+        /* SOBRE NOSOTROS */
+
+        .nosotros {
+            max-width: 1000px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+        .nosotros-caja {
+            min-height: 380px;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f4a825,
+                    #7f4315
+                );
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            font-size: 110px;
+        }
+
+        .nosotros-texto h2 {
+            font-size: 42px;
+
+            margin-bottom: 20px;
+        }
+
+        .nosotros-texto p {
+            color: #bbbbbb;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* INFO */
+
+        .informacion {
+            background: #161616;
+        }
+
+        .info-grid {
+            max-width: 1000px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .info-card {
+            background: #212121;
+
+            padding: 30px;
+
+            border-radius: 14px;
+
+            text-align: center;
+
+            border: 1px solid #2e2e2e;
+        }
+
+        .info-card h3 {
+            color: #f4a825;
+
+            margin-bottom: 12px;
+        }
+
+        .info-card p {
+            color: #cccccc;
+        }
+
+
+        /* CONTACTO */
+
+        .contacto {
+            max-width: 750px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+        .contacto h2 {
+            font-size: 42px;
+
+            margin-bottom: 15px;
+        }
+
+        .contacto > p {
+            color: #bbbbbb;
+
+            margin-bottom: 35px;
+        }
+
+        form {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 13px;
+
+            text-align: left;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+
+            padding: 16px;
+
+            border-radius: 8px;
+
+            border: 1px solid #333333;
+
+            background: #1d1d1d;
+
+            color: white;
+
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 110px;
+
+            resize: vertical;
+        }
+
+        form button {
+            padding: 16px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #f4a825;
+
+            color: #111111;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: #ffba3c;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            padding: 35px 20px;
+
+            text-align: center;
+
+            background: #090909;
+
+            color: #777777;
+
+            border-top: 1px solid #222222;
+        }
+
+
+        /* CELULAR */
+
+        @media (max-width: 850px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nosotros {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 70px 20px;
+            }
+
+            .titulo-seccion h2,
+            .nosotros-texto h2,
+            .contacto h2 {
+                font-size: 34px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVEGACIÓN -->
+
+<nav>
+
+    <div class="logo">
+        Sazón <span>664</span>
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="#inicio">
+                Inicio
+            </a>
+        </li>
+
+        <li>
+            <a href="#menu">
+                Menú
+            </a>
+        </li>
+
+        <li>
+            <a href="#nosotros">
+                Nosotros
+            </a>
+        </li>
+
+        <li>
+            <a href="#contacto">
+                Contacto
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- PORTADA -->
+
+<header
+    class="hero"
+    id="inicio"
+>
+
+    <div class="hero-contenido">
+
+        <p class="pequeno">
+            Tijuana · Baja California
+        </p>
+
+        <h1>
+            Sabor de Tijuana
+            <span>en cada plato.</span>
+        </h1>
+
+        <p>
+
+            Cocina mexicana preparada al momento,
+            ingredientes frescos y ese sabor que
+            siempre te hace regresar.
+
+        </p>
+
+        <div class="botones">
+
+            <a
+                href="#menu"
+                class="boton"
+            >
+                Ver menú
+            </a>
+
+            <a
+                href="#contacto"
+                class="boton boton-secundario"
+            >
+                Ordenar ahora
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- MENÚ -->
+
+<section id="menu">
+
+    <div class="titulo-seccion">
+
+        <p>NUESTRO MENÚ</p>
+
+        <h2>
+            Los favoritos de la casa
+        </h2>
+
+    </div>
+
+
+    <div class="menu-grid">
+
+
+        <div class="platillo">
+
+            <div class="platillo-icono">
+                🌮
+            </div>
+
+            <h3>
+                Tacos de Asada
+            </h3>
+
+            <p>
+                Tres tacos de carne asada,
+                guacamole, cebolla, cilantro
+                y salsa de la casa.
+            </p>
+
+            <div class="precio">
+                $120 MXN
+            </div>
+
+        </div>
+
+
+        <div class="platillo">
+
+            <div class="platillo-icono">
+                🌯
+            </div>
+
+            <h3>
+                Burrito 664
+            </h3>
+
+            <p>
+                Carne asada, frijoles,
+                queso, guacamole y
+                salsa especial.
+            </p>
+
+            <div class="precio">
+                $145 MXN
+            </div>
+
+        </div>
+
+
+        <div class="platillo">
+
+            <div class="platillo-icono">
+                🍔
+            </div>
+
+            <h3>
+                Hamburguesa de la Casa
+            </h3>
+
+            <p>
+                Carne a la parrilla,
+                queso, vegetales frescos
+                y papas.
+            </p>
+
+            <div class="precio">
+                $175 MXN
+            </div>
+
+        </div>
+
+
+        <div class="platillo">
+
+            <div class="platillo-icono">
+                🥘
+            </div>
+
+            <h3>
+                Birria Especial
+            </h3>
+
+            <p>
+                Birria estilo Tijuana
+                acompañada con tortillas,
+                cebolla y consomé.
+            </p>
+
+            <div class="precio">
+                $185 MXN
+            </div>
+
+        </div>
+
+
+        <div class="platillo">
+
+            <div class="platillo-icono">
+                🧀
+            </div>
+
+            <h3>
+                Quesatacos
+            </h3>
+
+            <p>
+                Tres quesatacos dorados
+                con birria y queso
+                derretido.
+            </p>
+
+            <div class="precio">
+                $150 MXN
+            </div>
+
+        </div>
+
+
+        <div class="platillo">
+
+            <div class="platillo-icono">
+                🥤
+            </div>
+
+            <h3>
+                Agua Fresca
+            </h3>
+
+            <p>
+                Horchata, jamaica
+                o agua fresca
+                del día.
+            </p>
+
+            <div class="precio">
+                $45 MXN
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- NOSOTROS -->
+
+<section id="nosotros">
+
+    <div class="nosotros">
+
+        <div class="nosotros-caja">
+            🌮
+        </div>
+
+
+        <div class="nosotros-texto">
+
+            <p class="pequeno">
+                NUESTRA HISTORIA
+            </p>
+
+            <h2>
+                Hecho en Tijuana.
+            </h2>
+
+            <p>
+
+                Sazón 664 nació con una idea sencilla:
+                servir comida mexicana con ingredientes
+                frescos, buenas porciones y excelente
+                atención.
+
+            </p>
+
+            <p>
+
+                Somos un restaurante local pensado
+                para familias, amigos y cualquier
+                persona que quiera disfrutar una
+                buena comida.
+
+            </p>
+
+            <a
+                class="boton"
+                href="#contacto"
+            >
+                Visítanos
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- INFORMACIÓN -->
+
+<section class="informacion">
+
+    <div class="titulo-seccion">
+
+        <p>VISÍTANOS</p>
+
+        <h2>
+            Información
+        </h2>
+
+    </div>
+
+
+    <div class="info-grid">
+
+
+        <div class="info-card">
+
+            <h3>📍 Ubicación</h3>
+
+            <p>
+                Tijuana,
+                Baja California
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <h3>🕐 Horarios</h3>
+
+            <p>
+                Lunes a Domingo
+            </p>
+
+            <p>
+                11:00 AM - 10:00 PM
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <h3>📱 Contacto</h3>
+
+            <p>
+                WhatsApp
+            </p>
+
+            <p>
+                +52 XXX XXX XXXX
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- CONTACTO -->
+
+<section id="contacto">
+
+    <div class="contacto">
+
+        <p class="pequeno">
+            HAZ TU PEDIDO
+        </p>
+
+        <h2>
+            Ordena en segundos
+        </h2>
+
+        <p>
+
+            Selecciona tu platillo
+            y envíanos tu información.
+
+        </p>
+
+
+        <form>
+
+
+            <input
+                type="text"
+                placeholder="Tu nombre"
+            >
+
+
+            <input
+                type="tel"
+                placeholder="Tu teléfono"
+            >
+
+
+            <select>
+
+                <option>
+                    Selecciona tu pedido
+                </option>
+
+                <option>
+                    Tacos de Asada
+                </option>
+
+                <option>
+                    Burrito 664
+                </option>
+
+                <option>
+                    Hamburguesa de la Casa
+                </option>
+
+                <option>
+                    Birria Especial
+                </option>
+
+                <option>
+                    Quesatacos
+                </option>
+
+            </select>
+
+
+            <textarea
+                placeholder="Indicaciones adicionales..."
+            ></textarea>
+
+
+            <button type="button">
+
+                Enviar pedido
+
+            </button>
+
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    Sazón 664 · Tijuana, Baja California
+    <br>
+    Proyecto demostrativo
+
+</footer>
+
+
+</body>
+
+</html>
